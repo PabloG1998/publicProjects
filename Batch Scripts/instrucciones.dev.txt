@@ -1,0 +1,28 @@
+#ACTIVACIÓN OFFICE
+
+@echo off = Oculta los comandos
+echo <mensaje> = Imprime un mensaje en pantalla
+cd /d %ProgramFiles%\Microsoft Office\Office16 = Ingresa al path ProgramFiles (archivos de programa), a través de la variable de sistema %ProgramFiles%
+echo <mensaje> = Imprime un mensaje en pantalla
+echo <mensaje> = Imprime un mensaje en pantalla
+
+for /f %x in ('%path%) = crea un bucle for (bucle de repetición) hacia la carpeta root dentro del filesystem, dentro de la carpeta Licenses16\ProPlus2019VL* (VL = Volume License)
+do cscript ospp.vbs -> do (do = hacer, crea un bucle do por cada iteración del for)
+
+cscript ospp.vbs /setprt:1688 -> SETEA PUERTO 1688
+cscript ospp.vbs /unpkey:6MWKP >nul -> INGRESA CLAVE DE PRODUCTO Y NO DEVUELVE NADA (> nul)
+cscript ospp.vbs /inpkey:-OFFICE ACTIVATION-
+cscript ospp.vbs /sethst:e8.us.to -> SETEA EL HOST A e8.us.to
+cscript ospp.vbs /act -> EJECUTA LA PETICIÓN DE ACTIVACIÓN
+
+#ACTIVACIÓN WINDOWS
+
+slmgr.vbs -upk -> setea key de windows
+slmgr /skms kms.msguides.com -> conecta a servers KMS de Microsoft <OFICIALES>
+slmgr /ato -> Finaliza la activación
+
+@echo off = Oculta comandos
+echo <mensaje> = Imprime un mensaje en consola
+echo. <crea un salto de linea>
+pause <pausa el script con la leyendo "Press a key to continue...">
+exit <sale del script al presionar cualquier tecla>
